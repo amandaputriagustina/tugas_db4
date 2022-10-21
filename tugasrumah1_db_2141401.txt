@@ -1,0 +1,18 @@
+//a
+//menampilkan kd_mk dan matkul yang mahasiswanya 40
+SELECT tb_matakuliah.`kode_matkul`, tb_matakuliah.`nama_mk`, tb_ambil_mk.`jml_mhs`
+FROM tb_matakuliah INNER JOIN tb_ambil_mk ON tb_matakuliah.`kode_matkul` = tb_ambil_mk.`kode_matkul`
+WHERE jml_mhs = 40
+
+//b
+//menampilkan data instruktur yang mengajar 'Basis Data'
+SELECT tb_instruktur.`nip`, nama_ins, jurusan, asal_kota, nama_mk 
+FROM tb_instruktur, tb_matakuliah, tb_ambil_mk 
+WHERE tb_matakuliah.`kode_matkul` = tb_ambil_mk.`kode_matkul` 
+AND tb_instruktur.`nip` = tb_ambil_mk.`nip`AND tb_matakuliah.`nama_mk` = "Basis Data";
+
+//c
+//menampilkan instruktur yang tidak mengajar
+SELECT tb_instruktur.`nip`, nama_ins, jurusan, asal_kota 
+FROM tb_instruktur LEFT OUTER JOIN tb_ambil_mk ON tb_instruktur.`nip` = tb_ambil_mk.`nip` 
+WHERE tb_ambil_mk.`nip` IS NULL

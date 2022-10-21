@@ -1,0 +1,16 @@
+//JOIN
+
+SELECT tb_customer.`customer_id`, customer_name, customer_addres, order_id, order_date, qty, amont 
+FROM tb_customer INNER JOIN tb_order ON tb_customer.`customer_id` = tb_order.`customer_id`
+
+SELECT tb_customer.`customer_id`, customer_name, customer_addres, order_id, order_date, qty, amont 
+FROM tb_customer LEFT OUTER JOIN tb_order ON tb_customer.`customer_id` = tb_order.`customer_id`
+
+//UNION
+
+SELECT tb_customer.`customer_id`, customer_name, customer_addres, order_id, order_date, qty, amont 
+FROM tb_customer INNER JOIN tb_order ON tb_customer.`customer_id` = tb_order.`customer_id`
+
+UNION ALL
+SELECT tb_customer.`customer_id`, customer_name, customer_addres, order_id, order_date, qty, amont  
+FROM tb_customer LEFT OUTER JOIN tb_order ON tb_customer.`customer_id` = tb_order.`customer_id`
